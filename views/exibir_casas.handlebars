@@ -1,0 +1,85 @@
+<div class="principal">
+    <h1>Lista de Casas disponíveis</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each imovel}}
+            <div class="col">
+                <div class="card h-100">
+                    <img src={{dataValues.imagem}} class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{dataValues.titulo}}</h5>
+                        <p class="card-text">{{dataValues.descricao}}</p>
+                        <p class="card-text">{{dataValues.endereco}}</p>
+                        <p class="text-muted"><strong>Aluguel: </strong>R$  {{dataValues.aluguel}} &nbsp;  <strong>Condominio: </strong>R$  {{dataValues.condominio}} &nbsp; <strong>IPTU: </strong>R$  {{dataValues.iptu}}</p>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{dataValues.num_quartos}} quartos </small>
+                        <small class="text-muted">{{dataValues.num_suites}} suítes </small>
+                        <small class="text-muted">{{dataValues.num_salas_estar}} salas de estar </small>
+                        <small class="text-muted">{{dataValues.num_garagem}} vagas de garagem </small>
+                        <small class="text-muted">{{dataValues.area}} m² </small>
+                    </div>
+                    <div class="card-footer">
+                            <p><small>Possui armario embutido:  {{dataValues.possui_armario_embutido}}</small></p>                   
+                    </div>
+
+                    <div class="card-footer formulario">
+                        <form action="\agendar-visita" method="POST">
+                        <p>Agendar Visita</p>
+                        <div class="entrada">
+                            <div class="row" >
+                                <div class="col-sm" style="align-self: center;">
+                                    <label for="tipo_imovel" class="form-label">Dia da visita: </label>
+                                </div>
+                                <div class="col-sm">
+                                    <input id="date" type="date" name="data">
+                                </div>
+                            </div>                      
+                        </div>
+                        <div class="entrada selecao" style="margin-top: 5px;">
+
+                            <div class="row" >
+                                <div class="col-sm" style="align-self: center;">
+                                    <label for="tipo_imovel" class="form-label">Horário da visita: </label>
+                                </div>
+                                <div class="col-sm" style="margin-bottom: 10px;">
+                                    <select class="form-select horario" aria-label="tipo_imovel" name="horario">
+                                        <option selected value="1">10:00</option>
+                                        <option value="2">11:00</option>
+                                        <option value="2">14:00</option>
+                                        <option value="2">15:00</option>
+                                        <option value="2">16:00</option>
+                                        <option value="2">17:00</option>
+                                    </select> 
+                                </div>
+                                <button type="submit" class="btn btn-primary">Finalizar</button>
+                            </div>                                                          
+                        </div>                      
+                    </form>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<style>
+  
+    .principal {
+        max-width: 1400px;
+        margin-left: auto; 
+        margin-right: auto;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+
+    .principal h1 {
+        margin-bottom: 25px;
+    }
+
+    .horario {
+        display: inline;
+    }
+        
+</style>
