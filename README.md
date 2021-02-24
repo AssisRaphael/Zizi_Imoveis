@@ -29,3 +29,4 @@ Para cada imóvel cadastrado no sistema é importante saber o seu endereço comp
 * MySQL
 * Handlebars
 * Bootstrap
+* Blip
